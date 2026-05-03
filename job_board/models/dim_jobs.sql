@@ -8,7 +8,7 @@ j.min_amount,
 j.max_amount,
 j.date_posted
 from {{ source('bronze', 'jobs') }} j 
-left {{ ref('dim_locations') }} l 
+left join {{ ref('dim_locations') }} l 
 on l.location = j.location 
 left join {{ ref('dim_companies') }} c 
 on c.company = j.company
