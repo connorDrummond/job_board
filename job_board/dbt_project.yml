@@ -8,7 +8,11 @@ model-paths: ["models"]
 
 models:
   job_board:
-    silver:
-      +schema: silver
-    gold:
-      +schema: gold
+    +materialized: table
+
+    models:
+      silver:
+        +schema: dbt_silver
+
+      gold:
+        +schema: dbt_gold
