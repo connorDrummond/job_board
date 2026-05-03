@@ -2,14 +2,13 @@ name: Weekly Job Scraper
 
 on:
   schedule:
-    - cron: "0 10 * * 3"   # Every Wednesday at 10:00 UTC
+    - cron: "0 10 * * 3"   # Wednesday at 10:00 UTC
   workflow_dispatch:
 
 jobs:
   scrape-and-load:
     runs-on: ubuntu-latest
-
-    timeout-minutes: 30   # prevent runaway jobs
+    timeout-minutes: 30
 
     steps:
       - name: Checkout repository
@@ -23,7 +22,20 @@ jobs:
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install -r requirements.txt
+          python -m pip install -r requirements.txt
+
+      - name: Debug Python environment
+        run: |
+          echo "Python path:"
+          which python
+          echo "Python version:"
+          python --version
+          echo "Installed packages:"
+          python -m pip list
+
+      - name: Verify jobspy import
+        run: |
+          python -c "import jobspy; print('jobspy import works')"
 
       - name: Run scraper
         env:
