@@ -28,4 +28,4 @@ for job in jobs_list:
 conn_string = 'postgresql://postgres:14Cd1442$@database-2.cf28q0kociwu.us-east-2.rds.amazonaws.com:5432/postgres'
 db = create_engine(conn_string)
 
-data.to_sql('jobs', con=db, if_exists='append', index=False, schema = 'silver')
+data.to_sql('jobs', con=db, if_exists='append', index=False, schema = 'bronze')
