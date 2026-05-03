@@ -10,9 +10,8 @@ models:
   job_board:
     +materialized: table
 
-    models:
-      silver:
-        +schema: dbt_silver
+    silver:
+      +schema: dbt_silver
 
-      gold:
-        +schema: dbt_gold
+    gold:
+      +schema: dbt_gold
