@@ -4,5 +4,5 @@ company,
 location,
 company_url,
 max(company_num_employees) as company_num_employees
- from {{ source('bronze', 'jobs') }}
+ from postgres.bronze.jobs
  group by 1,2,3,4
