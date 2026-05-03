@@ -1,0 +1,13 @@
+name: job_board
+version: 1.0.0
+config-version: 2
+
+profile: default
+
+model-paths: ["models"]
+
+models:
+  job_board:
+    +materialized: table
+    silver:
+      +schema: silver
