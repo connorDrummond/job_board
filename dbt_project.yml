@@ -2,7 +2,7 @@ name: job_board
 version: 1.0.0
 config-version: 2
 
-profile: default
+profile: stg
 
 model-paths: ["models"]
 
