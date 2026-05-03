@@ -1,4 +1,6 @@
-from jobspy import scrape_jobs
+import jobspy
+
+
 import pandas as pd
 from sqlalchemy import create_engine
 import os
@@ -13,7 +15,7 @@ jobs_list = [
 data = pd.DataFrame()
 
 for job in jobs_list:
-    jobs = scrape_jobs(
+    jobs = jobspy.scrape_jobs(
         site_name="indeed",
         search_term=job,
         google_search_term="Data engineer jobs near Kansas City, MO since yesterday",
